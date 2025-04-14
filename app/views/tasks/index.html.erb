@@ -1,0 +1,38 @@
+<h1 class="text-4xl font-bold text-center text-gray-800 mb-10">📋 Your Tasks</h1>
+
+<div class="text-right mb-6 px-4">
+  <%= link_to "➕ New Task", new_task_path,
+    class: "bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300 ease-in-out" %>
+</div>
+
+<div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4">
+  <% @tasks.each do |task| %>
+    <div class="bg-white border border-gray-200 rounded-xl shadow hover:shadow-lg transition-transform transform hover:-translate-y-1 duration-300">
+      <div class="p-6 space-y-4">
+        <h2 class="text-xl font-semibold text-gray-800"><%= task.title %></h2>
+        <p class="text-gray-600 text-sm"><%= task.description.presence || "No description provided." %></p>
+
+        <div class="flex justify-between items-center text-sm text-gray-500">
+          <span>🗓 <%= task.due_date.strftime("%B %d, %Y") %></span>
+          <% if task.completed %>
+            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium">✅ Completed</span>
+          <% else %>
+            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-medium">⏳ Pending</span>
+          <% end %>
+        </div>
+
+        <div class="flex justify-end gap-2 pt-4">
+          <%= link_to "Show", task_path(task),
+            class: "text-xs border border-indigo-300 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-medium px-3 py-1 rounded-md transition" %>
+
+          <%= link_to "Edit", edit_task_path(task),
+            class: "text-xs border border-yellow-300 bg-yellow-50 hover:bg-yellow-100 text-yellow-700 font-medium px-3 py-1 rounded-md transition" %>
+
+          <%= link_to "Delete", task_path(task),
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+            class: "text-xs border border-red-300 bg-red-50 hover:bg-red-100 text-red-700 font-medium px-3 py-1 rounded-md transition" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

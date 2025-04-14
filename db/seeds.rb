@@ -7,3 +7,12 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+# db/seeds.rb
+
+Task.create!([
+  { title: "Buy groceries", description: "Milk, Eggs, Bread", due_date: Date.today + 1, completed: false },
+  { title: "Call Mom", description: "Weekend catch-up", due_date: Date.today, completed: false },
+  { title: "Read book", description: "Finish Rails Guide", due_date: Date.today + 3, completed: false },
+  { title: "Workout", description: "30 mins cardio", due_date: Date.today + 2, completed: true },
+  { title: "Pay bills", description: "Electricity and Water", due_date: Date.today - 1, completed: true }
+])

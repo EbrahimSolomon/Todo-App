@@ -1,0 +1,9 @@
+<% content_for :title, "New Task" %>
+
+<div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-6">📝 <%= action_name.capitalize %> Task</h1>
+
+  <%= render "form", task: @task %>
+
+  <%= link_to "← Back to Tasks", tasks_path, class: "mt-4 inline-block text-blue-600 dark:text-blue-400 hover:underline" %>
+</div>
