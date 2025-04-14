@@ -12,7 +12,7 @@ class TasksController < ApplicationController
     else
       Task.all
     end
-  end  
+  end
 
   # GET /tasks/1 or /tasks/1.json
   def show

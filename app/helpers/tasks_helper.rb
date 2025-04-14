@@ -1,5 +1,4 @@
 module TasksHelper
-
     def themed_form_container(&block)
         if controller_name == "tasks" && %w[new edit].include?(action_name)
           tag.div class: "bg-gradient-to-br from-blue-50 via-white to-purple-100 min-h-screen py-10 px-4 rounded-xl shadow-inner" do

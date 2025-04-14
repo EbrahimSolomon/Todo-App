@@ -9,5 +9,4 @@ module ApplicationHelper
         capture(&block)
       end
     end
-  end
-  
+end
